@@ -2,7 +2,7 @@ import axios from "axios";
 
 // 创建请求对象
 const http = axios.create({
-    baseURL: 'http://api.keyou.site:8000',
+    baseURL: 'http://47.100.245.170:2222/',
     timeout: 1000,
     validateStatus: function (status) {
         return true
