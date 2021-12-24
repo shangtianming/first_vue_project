@@ -61,13 +61,13 @@ const router = new VueRouter({
 })
 
 // 导航守卫
-// router.beforeEach((to, from, next) => {
-//   if (to.path === '/login' || window.sessionStorage.getItem('token')) {
-//     // 这里还可以鉴别token是否有效
-//     next()
-//   } else {
-//     next('/login')
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login' || window.sessionStorage.getItem('token')) {
+    // 这里还可以鉴别token是否有效
+    next()
+  } else {
+    next('/login')
+  }
+})
 
 export default router

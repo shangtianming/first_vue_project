@@ -71,7 +71,7 @@ export default {
 				if (!res) return
 
 				const r = await this.$req.loginApi(this.form)
-				if (r.status === 200) {
+				if (r.status === 200 && r.data.token) {
 					this.$message({
 						showClose: true,
 						message: '登录成功',
