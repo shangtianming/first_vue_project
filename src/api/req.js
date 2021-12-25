@@ -2,7 +2,8 @@ import axios from "axios";
 
 // 创建请求对象
 const http = axios.create({
-    baseURL: 'http://47.100.245.170:3333/',
+    // baseURL: 'http://127.0.0.1:8000/',
+    baseURL: 'http://47.100.245.170:4444/',
     timeout: 1000,
     validateStatus: function (status) {
         return true
@@ -14,7 +15,7 @@ http.interceptors.request.use(
     function (config) {
         const token = window.sessionStorage.getItem('token')
         if (token && config.url != "/user/login/") {
-            config.headers.Authorization = 'JWT ' + token
+            config.headers.Authorization = 'Token ' + token
         }
         return config
     },
@@ -29,45 +30,45 @@ const req = {
         return http.post('/user/login/', data)
     },
 
-    // 注册
-    registerApi(data) {
-        return http.post('/user/register/', data)
+    // 验证token
+    tokenVeri(data) {
+        return http.post('/user/token/', data)
     },
 
     // 项目-获取
     getProjects(data) {
-        return http.get('/projects/', { params: data })
+        return http.get('/white/projects/', { params: data })
     },
 
     // 项目-删除
     deleteProject(id) {
-        return http.delete('/projects/' + id + '/')
+        return http.delete('/white/projects/' + id + '/')
     },
     // 项目-修改
     updateProject(id, data) {
-        return http.put('/projects/' + id + '/', data)
+        return http.put('/white/projects/' + id + '/', data)
     },
     // 项目-添加
     addProject(data) {
-        return http.post('/projects/', data)
+        return http.post('/white/projects/', data)
     },
 
     // 接口-获取
     getInterfaces(data) {
-        return http.get('/interfaces/', { params: data })
+        return http.get('/white/interfaces/', { params: data })
     },
 
     // 接口-删除
     deleteInterface(id) {
-        return http.delete('/interfaces/' + id + '/')
+        return http.delete('/white/interfaces/' + id + '/')
     },
     // 接口-修改
     updateInterface(id, data) {
-        return http.put('/interfaces/' + id + '/', data)
+        return http.put('/white/interfaces/' + id + '/', data)
     },
     //接口- 添加
     addInterface(data) {
-        return http.post('/interfaces/', data)
+        return http.post('/white/interfaces/', data)
     }
 }
 

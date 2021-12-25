@@ -41,9 +41,8 @@ export default {
 	data() {
 		return {
 			form: {
-				username: 'whitewall',
-				password: '123456',
-				status: false,
+				username: '',
+				password: ''
 			},
 			// 先定义字段规则
 			loginRules: {
@@ -80,6 +79,7 @@ export default {
 					})
 					const token = r.data.token
 					window.sessionStorage.setItem('token', token)
+					window.sessionStorage.setItem('username', this.form.username)
 
 					this.$router.push('/home')
 				} else {

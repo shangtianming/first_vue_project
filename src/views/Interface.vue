@@ -71,7 +71,7 @@
 				</el-form-item>
 				<el-form-item label="所属项目ID">
 					<el-input
-						v-model="addData.project_id"
+						v-model="editData.project_id"
 						autocomplete="off"
 					></el-input>
 				</el-form-item>
