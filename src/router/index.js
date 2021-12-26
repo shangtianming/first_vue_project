@@ -61,12 +61,18 @@ const router = new VueRouter({
 })
 
 // 导航守卫
-router.beforeEach((to, from, next) => {
-  if (to.path === '/login' || window.sessionStorage.getItem('token')) {
-    // 这里还可以鉴别token是否有效
-    next()
+router.beforeEach(async (to, from, next) => {
+  if (to.path === '/login') {
+    // 鉴别token是否有效
+    u = window.sessionStorage.getItem('username')
+    const r = await this.$req.tokenVeri({ username: u })
+    if (r.status === 200 && r.data.msg) {
+      next()
+    } else {
+      next('/login')
+    }
   } else {
-    next('/login')
+    next('/login') 
   }
 })
 
