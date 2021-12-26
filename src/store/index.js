@@ -5,7 +5,7 @@ import req from '../api/req.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  // 用来定义全局的数据(多组件共用的数据) 不能双向绑定，修改只能通过mutations
+  // 用 来定义全局的数据(多组件共用的数据) 不能双向绑定，修改只能通过mutations
   state: {
     projects: ['1', '2', '3'],
     name: 'vuex中的name字段',
