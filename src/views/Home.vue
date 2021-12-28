@@ -82,6 +82,7 @@ export default {
 	methods: {
 		loginOut() {
 			window.sessionStorage.removeItem('token')
+			window.sessionStorage.removeItem('username')
 			this.$router.push('/login')
 		},
 	},
