@@ -64,7 +64,7 @@ const router = new VueRouter({
 router.beforeEach(async (to, from, next) => {
   if (to.path === '/login') {
     // 鉴别token是否有效
-    u = window.sessionStorage.getItem('username')
+    const u = window.sessionStorage.getItem('username')
     const r = await this.$req.tokenVeri({ username: u })
     if (r.status === 200 && r.data.msg) {
       next()
