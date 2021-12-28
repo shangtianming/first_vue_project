@@ -7,6 +7,7 @@ import Interface from '@/views/Interface'
 import Cases from '@/views/Cases'
 import EditCase from '@/views/EditCase'
 import Page404 from '@/views/Page404'
+import req from '../api/req'
 
 Vue.use(VueRouter)
 
@@ -65,7 +66,7 @@ router.beforeEach(async (to, from, next) => {
   if (to.path === '/login') {
     // 鉴别token是否有效
     const u = window.sessionStorage.getItem('username')
-    const r = await this.$req.tokenVeri({ username: u })
+    const r = await req.tokenVeri({ username: u })
     if (r.status === 200 && r.data.msg) {
       next()
     } else {
