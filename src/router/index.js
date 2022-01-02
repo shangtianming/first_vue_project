@@ -64,7 +64,7 @@ const router = new VueRouter({
 // 导航守卫
 router.beforeEach(async (to, from, next) => {
   if (to.path != '/login') {
-    // 如果不是访问登录页面，则鉴别token是否有效 -
+    // 如果不是访问登录页面，则鉴别token是否有效 --
     const u = window.sessionStorage.getItem('username')
     const r = await req.tokenVeri({ username: u })
     if (r.status === 200 && r.data.msg) {
