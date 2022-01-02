@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                echo $JAVA_HOME 
+                echo `pwd`
             }
         }
         stage('Deploy') { 
