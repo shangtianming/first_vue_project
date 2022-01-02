@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                echo `pwd`
+                echo $(pwd)
             }
         }
         stage('Deploy') { 
