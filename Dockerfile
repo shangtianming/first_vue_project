@@ -2,7 +2,7 @@
 FROM nginx
 
 # 定义作者
-MAINTAINER WhiteWall
+LABEL maintainer="WhiteWall"
 
 # 删除目录下的default.conf文件 , 原本就没有这个文件
 RUN rm /etc/nginx/conf.d/default.conf

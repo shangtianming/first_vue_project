@@ -10,7 +10,8 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                echo $(pwd)
+                // 在linux上执行
+                sh "echo `pwd`"
             }
         }
         stage('Deploy') { 
