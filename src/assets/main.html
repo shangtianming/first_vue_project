@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <style>
+    body {
+      background: url(whitewall.jpeg);
+      background-size:cover;
+    }
+
+    .el-header {
+      margin-left: 30%;
+      width: 40%;
+      margin-top: 200px;
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    .input-with-select,
+    .el-input__inner {
+      background-color: rgb(1, 1, 1,0.4);
+      border: 0px;
+      color: rgb(250, 250, 248);
+    }
+
+    .el-main{
+      margin-top: 200px;
+    }
+
+    .el-select .el-input {
+      width: 80px;
+    }
+
+    .el-row {
+      margin-bottom: 20px;
+    }
+
+    .el-col {
+      border-radius: 4px;
+    }
+
+    .grid-content {
+      border-radius: 4px;
+      min-height: 36px;
+      text-align: center;
+      padding-top: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <el-container>
+
+      <el-header>
+        <div>
+          <el-input placeholder="请输入内容" v-model="search_data" class="input-with-select" @keypress.native.enter="search" clearable>
+            <el-select v-model="select" slot="prepend" placeholder="请选择">
+              <el-option label="百度" value="百度"></el-option>
+              <el-option label="知乎" value="知乎"></el-option>
+              <el-option label="谷歌" value="谷歌"></el-option>
+            </el-select>
+            
+            <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+          </el-input>
+        </div>
+      </el-header>
+
+      <!-- <el-main>
+        <el-row>
+          <el-col :span="1.5" style="margin-right: 15px;">
+            <div class="grid-content bg-purple">个人站点</div>
+          </el-col>
+          <el-col :span="3" style="margin-right: 10px;">
+            <div class="grid-content bg-purple">
+              <a href="https://jenkins.whitewall.top/" target="_blank">Jenkins</a>
+            </div>
+          </el-col>
+          <el-col :span="3" style="margin-right: 10px;">
+            <div class="grid-content bg-purple">
+              <a href="https://demo.whitewall.top/" target="_blank">半成品的测试平台</a></a>
+            </div>
+          </el-col>
+        </el-row>
+       
+      </el-main> -->
+      
+
+    </el-container>
+  </div>
+
+
+  <script>
+    function dosearch() {
+      var sf = document.searchform;
+      var submitto = sf.sengines.options[sf.sengines.selectedIndex].value + encodeURI(sf.searchterms.value) + "&ie=utf-8";
+
+      window.open(submitto);
+
+      return false;
+    }
+
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          search_data: "",
+          select: "百度"
+        }
+      },
+      methods: {
+        search() {
+          if (this.select == "百度") {
+            window.open("http://www.baidu.com/s?wd=" + this.search_data)
+          }
+          if (this.select == "谷歌") {
+            window.open("http://www.google.com/search?q=" + this.search_data)
+          }
+          if (this.select == "知乎") {
+            window.open("https://www.zhihu.com/search?type=content&q=" + this.search_data)
+          }
+        }
+      },
+    })
+
+  </script>
+</body>
+
+</html>
