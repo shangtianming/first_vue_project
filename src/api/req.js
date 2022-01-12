@@ -3,7 +3,8 @@ import axios from "axios";
 // 创建请求对象
 const http = axios.create({
     // baseURL: 'http://127.0.0.1:8000/',
-    baseURL: 'http://47.100.245.170:4444/',
+    // baseURL: 'http://47.100.245.170:4444/',
+	baseURL: 'https://django.whitewall.top/',
     timeout: 1000,
     validateStatus: function (status) {
         return true
