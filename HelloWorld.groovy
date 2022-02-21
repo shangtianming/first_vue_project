@@ -1,36 +1,14 @@
-// Declarative类型 
 pipeline {
-    agent any 
+    agent any	
     stages {
-        stage('Build') { 
+        stage('Utility Steps method') {
             steps {
-                // 这里是Groovy语法，写了一个打印语句
-                println "Build" 
-            }
-        }
-        stage('Test') { 
-            steps {
-                // 在linux上执行
-                sh "echo `pwd`"
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                println "Deploy" 
+                script {
+                    def files = findFiles(glob: '**/*.log')
+                    echo files[0].name
+                    // echo files[1].name
+                }
             }
         }
     }
 }
-
-// Scripted模式
-// node {  
-//     stage('Build') { 
-//         // 
-//     }
-//     stage('Test') { 
-//         // 
-//     }
-//     stage('Deploy') { 
-//         // 
-//     }
-// }
