@@ -15,6 +15,11 @@ pipeline{
 				error("some error method output")
 			}
 		}
+		stage("test") {
+			steps{
+				echo("some info logs output=======test")
+			}
+		}
 	}
 	post {
 		always {
