@@ -27,7 +27,7 @@ pipeline {
 					prop = readJSON file : file_path
 					echo "ok"
 		            // echo prop
-					// echo prop.mame
+					println prop.mame
 					echo "ok again" 
 		        }
 		    }
