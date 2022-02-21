@@ -21,7 +21,7 @@ pipeline {
 		stage('Utility Steps method---readJSON') {
 		    steps {
 		        script {
-					json_file = env.WORKSPACE + "package.json"
+					json_file = env.WORKSPACE + "/package.json"
 		            def jsons = readJSON(json_file)
 		            echo files[0].name
 		        }
