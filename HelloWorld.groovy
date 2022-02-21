@@ -1,33 +1,6 @@
 pipeline {
     agent any    
     stages {
-        stage('env') {
-            steps {
-                script {
-                    println env.JOB_NAME
-                    println env.BUILD_NUMBER
-                    println env.WORKSPACE
-                }
-            }
-        }
-        stage('Utility Steps method---findFiles') {
-            steps {
-                script {
-                    files = findFiles(glob: '**/*.log')
-                    println files[0].name
-                }
-            }
-        }
-        stage('Utility Steps method---readJSON') {
-            steps {
-                script {
-                    file_path_read = env.WORKSPACE + "/package.json"
-                    rd_json = readJSON file : file_path_read
-                    println rd_json
-                    println rd_json.name
-                }
-            }
-        }
         stage('Utility Steps method---writeJSON') {
             steps {
                 script {
