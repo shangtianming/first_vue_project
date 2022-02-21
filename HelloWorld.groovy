@@ -22,7 +22,7 @@ pipeline {
 		    steps {
 		        script {
 					json_file = env.WORKSPACE + "/package.json"
-		            def jsons = readJSON("package.json")
+		            def jsons = readJSON("package")
 		            echo jsons
 		        }
 		    }
