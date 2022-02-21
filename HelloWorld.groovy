@@ -26,6 +26,7 @@ pipeline {
 					echo "ok"
 		            echo prop
 					echo prop.mame
+					echo "ok again" 
 		        }
 		    }
 		}
