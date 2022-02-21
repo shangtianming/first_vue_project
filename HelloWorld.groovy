@@ -5,7 +5,7 @@ println env.WORKSPACE
 pipeline {
     agent any	
     stages {
-        stage('Utility Steps method') {
+        stage('Utility Steps method---findFiles') {
             steps {
                 script {
                     def files = findFiles(glob: '**/*.log')
@@ -18,5 +18,13 @@ pipeline {
                 }
             }
         }
+		stage('Utility Steps method---readJSON') {
+		    steps {
+		        script {
+		            def jsons = readJSON(glob: '**/*.json')
+		            echo files[0].name
+		        }
+		    }
+		}
     }
 }
