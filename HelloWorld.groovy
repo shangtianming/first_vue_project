@@ -1,5 +1,5 @@
-deleteDir()
 pipeline {
+	deleteDir()
     agent any    
     stages {
         stage('env') {
