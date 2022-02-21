@@ -30,5 +30,14 @@ pipeline {
 		        }
 		    }
 		}
+		stage('Utility Steps method---writeJSON') {
+		    steps {
+		        script {
+					tojson_file = env.WORKSPACE + "/testdata/new_json.json"
+					input_json =  env.WORKSPACE + "/package.json"
+					writeJSON file: tofile_path, json: input_json
+		        }
+		    }
+		}
     }
 }
