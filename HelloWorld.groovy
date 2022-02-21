@@ -57,5 +57,16 @@ pipeline {
 		        }
 		    }
 		}
+		stage('Utility Steps method---writeYaml') {
+		    steps {
+		        script {
+					yaml_path = env.WORKSPACE + "/test_jenkins_write.yaml"
+					input_path = env.WORKSPACE + "/test_jenkins.yaml"
+		            input_map = readYaml file : input_path
+					
+		            writeYaml file: yaml_path , data: input_map
+		        }
+		    }
+		}
     }
 }
