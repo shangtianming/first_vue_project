@@ -21,21 +21,21 @@ pipeline {
         stage('Utility Steps method---readJSON') {
             steps {
                 script {
-                    file_path = env.WORKSPACE + "/package.json"
-                    prop = readJSON file : file_path
-                    println prop
-                    println prop.name
+                    file_path_read = env.WORKSPACE + "/package.json"
+                    rd_json = readJSON file : file_path_read
+                    println rd_json
+                    println rd_json.name
                 }
             }
         }
         stage('Utility Steps method---writeJSON') {
             steps {
                 script {
-                    file_path = env.WORKSPACE + "/new_json.json"
+                    file_path_write = env.WORKSPACE + "/test_jenkins.json"
                     input_json =  env.WORKSPACE + "/package.json"
                     input = c file : input_json
                     
-                    writeJSON file: file_path, json: input
+                    writeJSON file: file_path_write, json: input
                 }
             }
         }
