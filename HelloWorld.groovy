@@ -22,8 +22,8 @@ pipeline {
 		    steps {
 		        script {
 					json_file = env.WORKSPACE + "/package.json"
-		            def jsons = readJSON(json_file)
-		            echo files[0].name
+		            def jsons = readJSON("package.json")
+		            echo jsons
 		        }
 		    }
 		}
