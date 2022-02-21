@@ -22,7 +22,8 @@ pipeline {
 		    steps {
 		        script {
 					json_file = env.WORKSPACE + "/package.json"
-		            def jsons = readJSON("package")
+					prop = readJSON file : json_file
+		            def jsons = readJSON(prop)
 		            echo jsons
 		        }
 		    }
