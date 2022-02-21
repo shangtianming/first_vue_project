@@ -21,10 +21,10 @@ pipeline {
 		stage('Utility Steps method---readJSON') {
 		    steps {
 		        script {
-					json_file = env.WORKSPACE + "/package.json"
-					prop = readJSON file : json_file
-		            def jsons = readJSON(prop)
-		            echo jsons
+					file_path = env.WORKSPACE + "/package.json"
+					prop = readJSON file : file_path
+		            echo prop
+					echo prop.mame
 		        }
 		    }
 		}
