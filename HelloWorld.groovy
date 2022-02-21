@@ -27,7 +27,7 @@ pipeline {
 					prop = readJSON file : file_path
 					println "ok"
 		            println prop
-					println prop.mame
+					println prop.name
 					println "ok again" 
 		        }
 		    }
