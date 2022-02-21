@@ -13,7 +13,7 @@ pipeline {
         stage('Utility Steps method---readProperties') {
             steps {
                 script {
-					properties_file = env.WORKSPACE + "/jenkins.properties"
+					properties_file = env.WORKSPACE + "/test_jenkins.properties"
                     props = readProperties interpolate: true, file: properties_file
                     println props
                 }
