@@ -1,3 +1,5 @@
+import hudson.model.*;
+
 pipeline {
     agent any	
     stages {
@@ -24,8 +26,8 @@ pipeline {
 					file_path = env.WORKSPACE + "/package.json"
 					prop = readJSON file : file_path
 					echo "ok"
-		            echo prop
-					echo prop.mame
+		            // echo prop
+					// echo prop.mame
 					echo "ok again" 
 		        }
 		    }
