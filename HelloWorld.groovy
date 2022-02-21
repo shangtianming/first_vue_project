@@ -1,4 +1,4 @@
-import hudson.model.*;
+// import hudson.model.*;
 
 pipeline {
     agent any	
@@ -25,10 +25,8 @@ pipeline {
 		        script {
 					file_path = env.WORKSPACE + "/package.json"
 					prop = readJSON file : file_path
-					println "ok"
 		            println prop
 					println prop.name
-					println "ok again" 
 		        }
 		    }
 		}
