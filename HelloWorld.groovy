@@ -1,5 +1,3 @@
-// import hudson.model.*;
-
 pipeline {
     agent any	
     stages {
@@ -12,34 +10,14 @@ pipeline {
 		        }
 		    }
 		}
-        stage('Utility Steps method---findFiles') {
+        stage('Utility Steps method---readProperties') {
             steps {
                 script {
-                    files = findFiles(glob: '**/*.log')
-                    println files[0].name
+					properties_file = env.WORKSPACE + "/jenkins.properties"
+                    props = readProperties interpolate: true, file: properties_file
+                    println props
                 }
             }
         }
-		stage('Utility Steps method---readJSON') {
-		    steps {
-		        script {
-					file_path = env.WORKSPACE + "/package.json"
-					prop = readJSON file : file_path
-		            println prop
-					println prop.name
-		        }
-		    }
-		}
-		stage('Utility Steps method---writeJSON') {
-		    steps {
-		        script {
-					file_path = env.WORKSPACE + "/testdata/new_json.json"
-					input_json =  env.WORKSPACE + "/package.json"
-					input = readJSON file : input_json
-					
-					writeJSON file: file_path, json: input
-		        }
-		    }
-		}
     }
 }
