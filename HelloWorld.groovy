@@ -52,8 +52,8 @@ pipeline {
 		    steps {
 		        script {
 					yaml_file = env.WORKSPACE + "/test_jenkins.yaml"
-		            yaml = readYaml file : yaml_file
-		            println yaml
+		            y = readYaml file : yaml_file
+		            println y
 		        }
 		    }
 		}
