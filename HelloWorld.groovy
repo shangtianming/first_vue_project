@@ -13,7 +13,7 @@ pipeline {
         stage('Utility Steps method---findFiles') {
             steps {
                 script {
-                    def files = findFiles(glob: '**/*.log')
+                    files = findFiles(glob: '**/*.log')
                     echo files[0].name
                 }
             }
