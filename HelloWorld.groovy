@@ -11,6 +11,10 @@ pipeline {
                     def files = findFiles(glob: '**/*.log')
                     echo files[0].name
                     // echo files[1].name
+					
+					println env.JOB_NAME
+					println env.BUILD_NUMBER
+					println env.WORKSPACE
                 }
             }
         }
