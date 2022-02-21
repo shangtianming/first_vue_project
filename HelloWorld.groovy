@@ -69,4 +69,12 @@ pipeline {
 		    }
 		}
     }
+	post {
+		always {
+			script {
+				//写相关清除/恢复环境等操作代码
+				deleteDir()
+			}
+		}
+	}
 }
