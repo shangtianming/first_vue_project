@@ -35,7 +35,9 @@ pipeline {
 		        script {
 					file_path = env.WORKSPACE + "/testdata/new_json.json"
 					input_json =  env.WORKSPACE + "/package.json"
-					writeJSON file: file_path, json: input_json
+					input = readJSON file : input_json
+					
+					writeJSON file: file_path, json: input
 		        }
 		    }
 		}
