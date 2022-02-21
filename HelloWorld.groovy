@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     files = findFiles(glob: '**/*.log')
-                    echo files[0].name
+                    println files[0].name
                 }
             }
         }
@@ -25,10 +25,10 @@ pipeline {
 		        script {
 					file_path = env.WORKSPACE + "/package.json"
 					prop = readJSON file : file_path
-					echo "ok"
-		            // echo prop
+					println "ok"
+		            println prop
 					println prop.mame
-					echo "ok again" 
+					println "ok again" 
 		        }
 		    }
 		}
