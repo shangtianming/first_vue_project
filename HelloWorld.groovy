@@ -18,7 +18,7 @@ pipeline{
 	post {
 		always {
 			script {
-				deleteDir()
+				// deleteDir()
 				println "结束"
 			}
 		}
