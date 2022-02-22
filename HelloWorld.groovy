@@ -15,4 +15,12 @@ pipeline{
 			}
 		}
 	}
+	post {
+		always {
+			script {
+				deleteDir()
+				println "结束"
+			}
+		}
+	}
 }
