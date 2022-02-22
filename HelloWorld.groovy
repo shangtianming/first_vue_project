@@ -32,7 +32,7 @@ pipeline{
 				}
 			}
 		}
-		stage("fileExists") {
+		stage("pwd()") {
 			steps{
 				script {
 					sh("pwd")
