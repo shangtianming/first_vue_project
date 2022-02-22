@@ -12,11 +12,11 @@ pipeline{
 		stage("fileExists") {
 			steps{
 				script {
-					json_file = "${env.WORKSPACE}/test_jenkins.json"
+					json_file = "${env.WORKSPACE}/test_jenkins.log"
 					if(fileExists(json_file) == true) {
-						echo("json file is exists")
+						echo("log file is exists")
 					}else {
-						error("here haven't find json file")
+						error("here haven't find log file")
 					}
 				}
 			}
