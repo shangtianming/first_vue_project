@@ -2,3 +2,4 @@ name: 'Anthony'
 age : 18
 city: 'Beijing'
 isMale: true
+test: '直接在平台上修改的内容'
