@@ -1,8 +1,8 @@
 def send_email_results(status,GITBranch,to_email_address_list) {
-	def subject = "Jenkins Job : " + env.JOB_NAME + "/" + env.BUILD_ID + " has " +  status
-	def result_url = env.BUILD_URL + "console"
+	subject = "Jenkins Job : " + env.JOB_NAME + "/" + env.BUILD_ID + " has " +  status
+	result_url = env.BUILD_URL + "console"
     
-    def text = """
+    text = """
 	<!DOCTYPE html>
 	<html>
 	<head>
