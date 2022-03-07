@@ -65,7 +65,9 @@ pipeline{
 	}
 	post{
 		always{
-			module_test = load env.WORKSPACE + "/test_groovy.groovy"
+			script {
+				module_test = load env.WORKSPACE + "/test_groovy.groovy"
+			}
 		}
 		failure {
 			script {
