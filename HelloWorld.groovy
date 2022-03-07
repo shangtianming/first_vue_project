@@ -25,7 +25,6 @@ pipeline{
 		stage("发邮件demo 3") {
 			steps{
 				script {
-					def fileContents = readFile env.WORKSPACE + '/testdata/basic_style.css'
 					def subject = "Jenkins Job : " + env.JOB_NAME + "/" + env.BUILD_ID
 					def result_url = env.BUILD_URL + "console"
 					def to_email_address_list = "yin921125@qq.com,yin921125@163.com"
