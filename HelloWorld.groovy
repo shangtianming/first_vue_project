@@ -60,18 +60,18 @@ pipeline{
 				}
 			}
 		}
-		post{
-			failure {
-				script {
-					module_test = load env.WORKSPACE + "/test_groovy.groovy"
-					module_test.send_email_results("Failed","Master","yin921125@qq.com,yin921125@163.com")
-				}
+	}
+	post{
+		failure {
+			script {
+				module_test = load env.WORKSPACE + "/test_groovy.groovy"
+				module_test.send_email_results("Failed","Master","yin921125@qq.com,yin921125@163.com")
 			}
-			success {
-				script {
-					module_test = load env.WORKSPACE + "/test_groovy.groovy"
-					module_test.send_email_results("Success","Master","yin921125@163.com")
-				}
+		}
+		success {
+			script {
+				module_test = load env.WORKSPACE + "/test_groovy.groovy"
+				module_test.send_email_results("Success","Master","yin921125@163.com")
 			}
 		}
 	}
