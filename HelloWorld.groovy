@@ -1,7 +1,6 @@
 pipeline{
 	agent any
 	environment {
-		module_test = load env.WORKSPACE + "/test_groovy.groovy"
 		to_email = "yin921125@qq.com"
 		to_email_address_list = "yin921125@qq.com,yin921125@163.com"
 	}
@@ -65,6 +64,7 @@ pipeline{
 		}
 	}
 	post{
+		module_test = load env.WORKSPACE + "/test_groovy.groovy"
 		failure {
 			script {
 				module_test.send_email_results("Failed","Master",to_email_address_list)
