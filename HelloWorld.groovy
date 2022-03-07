@@ -1,15 +1,11 @@
 pipeline{
 	agent any
+	environment {
+		module_test = load env.WORKSPACE + "/test_groovy.groovy"
+		to_email = "yin921125@qq.com"
+		to_email_address_list = "yin921125@qq.com,yin921125@163.com"
+	}
 	stages{
-		stage("初始化") {
-			steps{
-				script {
-					module_test = load env.WORKSPACE + "/test_groovy.groovy"
-					to_email = "yin921125@qq.com"
-					to_email_address_list = "yin921125@qq.com,yin921125@163.com"
-				}
-			}
-		}
 		stage("发邮件demo 1") {
 			steps{
 				script {
