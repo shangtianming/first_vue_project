@@ -25,11 +25,11 @@ pipeline{
 		stage("发邮件demo 3") {
 			steps{
 				script {
-					def subject = "Jenkins Job : " + env.JOB_NAME + "/" + env.BUILD_ID
-					def result_url = env.BUILD_URL + "console"
-					def to_email_address_list = "yin921125@qq.com,yin921125@163.com"
+					subject = "Jenkins Job : " + env.JOB_NAME + "/" + env.BUILD_ID
+					result_url = env.BUILD_URL + "console"
+					to_email_address_list = "yin921125@qq.com,yin921125@163.com"
 					
-					def text = """
+					text = """
 					<!DOCTYPE html>
 					<html>
 						<head>
@@ -37,16 +37,16 @@ pipeline{
 							<title></title>
 						</head>
 						<body>
-							<div id="content">
+							<div>
 								<h1>Summary</h1>
-								<div id="sum2">
+								<div>
 									<h2>Jenkins Build</h2>
 									<ul>
 										<li>Job URL : <a href='${env.BUILD_URL}'>${env.BUILD_URL}</a></li>
 										<li>Build Result URL : <a href='${result_url}'>${result_url}</a></li>
 									</ul>
 								</div>
-								<div id="sum0">
+								<div>
 									<h2>GIT Branch</h2>
 									<ul>
 										<li>这是一个测试分支</li>
