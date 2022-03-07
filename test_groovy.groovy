@@ -1,5 +1,4 @@
 def send_email_results(status,GITBranch,to_email_address_list) {
-	def fileContents = readFile env.WORKSPACE + '/testdata/basic_style.css'
 	def subject = "Jenkins Job : " + env.JOB_NAME + "/" + env.BUILD_ID + " has " +  status
 	def result_url = env.BUILD_URL + "console"
     
@@ -23,7 +22,7 @@ def send_email_results(status,GITBranch,to_email_address_list) {
 			<div>
 				<h2>GIT Branch</h2>
 				<ul>
-					<li>这是测试引用其他groovy文件的邮件</li>
+					<li>这是测试引用其他groovy文件的邮件${GITBranch}</li>
 				</ul>
 			</div>
 		</div>
