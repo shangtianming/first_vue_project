@@ -1,15 +1,16 @@
+module_test = load env.WORKSPACE + "/test_groovy.groovy"
 pipeline{
 	agent any
 	stages{
 		stage("发邮件demo 1") {
-					steps{
-						script {
-							mail to: '570375381@qq.com',
-		                    subject: "Running Pipeline: ${currentBuild.fullDisplayName}",
-		                    body: "Something is wrong with ${env.BUILD_URL}"
-						}
-					}
+			steps{
+				script {
+					mail to: '570375381@qq.com',
+					subject: "Running Pipeline: ${currentBuild.fullDisplayName}",
+					body: "Something is wrong with ${env.BUILD_URL}"
 				}
+			}
+		}
 		stage("发邮件demo 2") {
 			steps{
 				script {
@@ -57,6 +58,18 @@ pipeline{
 					</html>
 					"""
 					mail body: text, subject: subject,  mimeType: 'text/html', to: to_email_address_list
+				}
+			}
+		}
+		post{
+			failure {
+				script {
+					module_test.send_email_results("Failed","Master","yin921125@qq.com,yin921125@163.com")
+				}
+			}
+			success {
+				script {
+					module_test.send_email_results("Success","Master","yin921125@163.com")
 				}
 			}
 		}
