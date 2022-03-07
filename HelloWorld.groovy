@@ -64,7 +64,9 @@ pipeline{
 		}
 	}
 	post{
-		module_test = load env.WORKSPACE + "/test_groovy.groovy"
+		always{
+			module_test = load env.WORKSPACE + "/test_groovy.groovy"
+		}
 		failure {
 			script {
 				module_test.send_email_results("Failed","Master",to_email_address_list)
