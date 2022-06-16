@@ -41,8 +41,8 @@ export default {
 	data() {
 		return {
 			form: {
-				username: '',
-				password: ''
+				username: 'admin',
+				password: 'whitewall'
 			},
 			// 先定义字段规则
 			loginRules: {
