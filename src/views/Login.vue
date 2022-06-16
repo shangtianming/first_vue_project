@@ -2,7 +2,7 @@
 	<div>
 		<div class="box">
 			<el-card class="box-card">
-				<h3 class="title">练习用的一个半成品</h3>
+				<h3 class="title">练习用的一个半成品，账号 admin，密码 whitewall</h3>
 				<!-- 然后在template中使用定义的规则 -->
 				<!-- el-form通过rules绑定校验规则 -->
 				<el-form :model="form" :rules="loginRules" ref="loginRef">
@@ -41,8 +41,8 @@ export default {
 	data() {
 		return {
 			form: {
-				username: 'admin',
-				password: 'whitewall'
+				username: '',
+				password: ''
 			},
 			// 先定义字段规则
 			loginRules: {
